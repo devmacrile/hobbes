@@ -1,0 +1,37 @@
+/* Test: int and float mixed arithmetic operators */
+
+program float_math_mixed
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int := 1;
+            var b : float := 2.4;
+            var d : float;
+        begin
+            printf(5);
+
+            d := 1;
+            printf(d);
+
+            d := a;
+            printf(d);
+
+            d := 3 + b;
+            printf(d);
+
+            d := a + b;
+            printf(d);
+
+            d := 12 + a + 1.5 + b + 3;
+            printf(d);
+
+            d := 12.4 + a / (2 * b) + 1.5 * 6 - b / 3;
+            printf(d);
+        end
+        return 0;
+    end
+
+end

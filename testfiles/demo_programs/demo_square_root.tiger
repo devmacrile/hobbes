@@ -1,0 +1,35 @@
+/* Test Program: square root */
+
+program demo_square_root
+let
+begin
+
+    function squareRoot (n : float) : float
+    begin
+        let
+            var x : float;
+            var y : float;
+            var e : float := 0.000001;
+        begin
+            x := n;
+            y := 1.0;
+            while (( x - y ) > e) do
+                x := (x + y) / 2;
+                y := n / x;
+            enddo;
+            return x;
+        end
+    end
+
+    function main() : int
+    begin
+        let
+            var result : float;
+        begin
+            result := squareRoot(42.0);
+            printf(result);
+        end
+        return 0;
+	end
+
+end

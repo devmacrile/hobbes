@@ -1,0 +1,21 @@
+/* Test: logical operators */
+
+program basic_logical_ops
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int := 1;
+        begin
+            printi(a | 0);
+            printi(a & 0);
+            printi(a | 1);
+            printi(a & 1);
+            printi(1 & 0 | 1);
+        end
+        return 0;
+    end
+
+end

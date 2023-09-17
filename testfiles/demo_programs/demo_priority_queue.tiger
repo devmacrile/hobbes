@@ -1,0 +1,159 @@
+/* Test Program: implementation of priority queue */
+
+program demo_priority_queue
+let
+    type queue = array[21] of int;
+    static MAX_SIZE : int := 20;
+    static keys : queue := 0;
+    static values: queue := 0;
+    static size : int := 0;
+begin
+
+    function swap(i : int, j : int)
+    begin
+        let
+            var tmp_key, tmp_value : int;
+        begin
+            tmp_key := keys[j];
+            tmp_value := values[j];
+
+            keys[j] := keys[i];
+            values[j] := values[i];
+            keys[i] := tmp_key;
+            values[i] := tmp_value;
+        end
+    end
+
+    function up_heap(from : int)
+    begin
+        let
+            var swap_made : int := 1;
+            var parent : int;
+        begin
+            parent := from / 2;
+
+            while (parent > 0 & swap_made != 0) do
+                if (keys[parent] > keys[from]) then
+                    swap(parent, from);
+                    from := parent;
+                    parent := from / 2;
+                else
+                    swap_made := 0;
+                endif;
+            enddo;
+        end
+    end
+
+    function down_heap(at : int)
+    begin
+        let
+           var right, left, l, r : int;
+        begin
+            left := at * 2;
+            right := left + 1;
+            l := 0;
+            r := 0;
+
+            if (left <= size) then
+                if (keys[at] > keys[left]) then
+                    l := 1;
+                endif;
+            endif;
+            if (right <= size) then
+                if (keys[at] > keys[right]) then
+                    r := 1;
+                endif;
+            endif;
+
+            if (r | l) then
+                let
+                    var child : int;
+                begin
+                    if (r & l) then
+                        if (keys[left] < keys[right]) then
+                            child := left;
+                        else
+                            child := right;
+                        endif;
+                    else
+                        if (l) then
+                            child := left;
+                        else
+                            child := right;
+                        endif;
+                    endif;
+                    swap(at, child);
+                    down_heap(child);
+                end
+            endif;
+        end
+    end
+
+    function peek() : int
+    begin
+        let
+            var result : int;
+        begin
+            result := values[1];
+            return result;
+        end
+    end
+
+    function push(key : int, value : int)
+    begin
+        if (size == MAX_SIZE) then
+            exit(1);
+        endif;
+
+        size := size + 1;
+        keys[size] := key;
+        values[size] := value;
+        up_heap(size);
+    end
+
+    function pop()
+    begin
+        if (size == 0) then
+            exit(2);
+        endif;
+
+        keys[1] := keys[size];
+        values[1] := values[size];
+        size := size - 1;
+        down_heap(1);
+    end
+
+    function init_data()
+    begin
+        push(5, 108);   /*l*/
+        push(8,87);     /*W*/
+        push(18, 100);  /*d*/
+        push(22, 33);   /*!*/
+        push(6,111);    /*o*/
+        push(7, 32);    /*sp*/
+        push(11, 111);  /*o*/
+        push(13, 114);  /*r*/
+        push(15, 108);  /*l*/
+        push(0, 72);    /*H*/
+        push(1, 101);   /*e*/
+        push(2, 108);   /*l*/
+    end
+
+    function main() : int
+    begin
+        let
+            var value, i, n : int;
+        begin
+            init_data();
+
+            n := size;
+            for i := 1 to n do
+                value := peek();
+                printi(value);
+                pop();
+            enddo;
+        end
+        return 0;
+    end
+
+end

@@ -1,0 +1,24 @@
+program err_func_call_array_arg
+let
+    type intArray = array[10] of int;
+begin
+
+    function addIt(x : int, y : intArray) : int
+    begin
+        return x + y[0];
+    end
+
+    function main(): int
+    begin
+        let
+            var a : int := 1;
+            var b : intArray := 1;
+        begin
+            a := addIt(a, b);
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: function call with array type argument*/

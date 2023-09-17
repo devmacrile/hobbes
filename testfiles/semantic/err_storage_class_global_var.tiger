@@ -1,0 +1,14 @@
+program err_storage_class_global_var
+let
+    var a : int;
+begin
+
+    function main() : int
+    begin
+        a := 10;
+        return 0;
+    end
+
+end
+
+/*Semantic Error: non-static global variable*/

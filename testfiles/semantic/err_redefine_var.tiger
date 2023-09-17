@@ -1,0 +1,20 @@
+program err_redefine_var
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int;
+            var b : int;
+            var a : int;
+        begin
+            a := 1;
+            b := 1;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: var redefined in same scope*/

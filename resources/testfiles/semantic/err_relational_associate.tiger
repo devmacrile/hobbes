@@ -1,0 +1,18 @@
+program err_relational_associate
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a, b: int := 1;
+            var c : int;
+        begin
+            c := (a == b == 1);
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: relational operators do not associate*/

@@ -1,0 +1,52 @@
+/* Test: basic integer arithmetic operators */
+
+program basic_math
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a, b : int := 5;
+            var c : int;
+        begin
+            c := 200 + 100;
+            printi(c);
+
+            c := a + 50;
+            printi(c);
+
+            c := a + b;
+            printi(c);
+
+            c := 200 - 100;
+            printi(c);
+
+            c := a - 50;
+            printi(c);
+
+            c := a - b;
+            printi(c);
+
+            c := 200 * 100;
+            printi(c);
+
+            c := a * 50;
+            printi(c);
+
+            c := a * b;
+            printi(c);
+
+            c := 200 / 100;
+            printi(c);
+
+            c := a / 2;
+            printi(c);
+
+            c := a / b;
+            printi(c);
+        end
+    return 0;
+    end
+
+end

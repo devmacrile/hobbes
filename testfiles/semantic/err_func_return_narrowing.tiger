@@ -1,0 +1,22 @@
+program err_func_return_narrowing
+let
+begin
+
+    function doubleIt(x : float) : int
+    begin
+        return x + x;
+    end
+
+    function main(): int
+    begin
+        let
+            var a: float := 5.0;
+        begin
+            a := doubleIt(a);
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: function return with narrowing conversion*/

@@ -1,0 +1,17 @@
+program err_undefined_function
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int;
+        begin
+            a := undefinedFunction();
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: function undefined*/

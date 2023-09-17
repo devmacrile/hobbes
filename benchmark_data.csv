@@ -1,0 +1,16 @@
+benchmark,allocation,instructions,reads,writes,branches
+benchmark1,Naive,543,158,123,62
+benchmark1,Intra-Block,544,159,123,62
+benchmark1,Global Briggs,310,24,24,62
+benchmark1f,Naive,545,158,123,62
+benchmark1f,Intra-Block,546,159,123,62
+benchmark1f,Global Briggs,312,24,24,62
+benchmark2,Naive,1194,437,309,62
+benchmark2,Intra-Block,920,254,218,62
+benchmark2,Global Briggs,832,261,123,62
+benchmark2f,Naive,1196,437,309,62
+benchmark2f,Intra-Block,918,252,216,62
+benchmark2f,Global Briggs,576,63,63,62
+benchmark3,Naive,336235,90518,72416,51730
+benchmark3,Intra-Block,509509,178448,157760,51730
+benchmark3,Global Briggs,566409,237934,155174,51730

@@ -1,0 +1,21 @@
+program err_while_expr_float
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int := 1;
+            var b : float := 1.0;
+        begin
+            while (a+b) do
+                printf(b);
+                break;
+            enddo;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: while() condition is float type*/

@@ -1,0 +1,25 @@
+/* Test: power operator with floats*/
+
+program float_math_power_op
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int := 2;
+            var b : float;
+        begin
+            b := 12.2 ** 2;
+            printf(b);
+
+            b := 3.2 ** a ** 3;
+            printf(b);
+
+            b := 11.0 / 3.0 ** a * 12.22;
+            printf(b);
+        end
+        return 0;
+    end
+
+end

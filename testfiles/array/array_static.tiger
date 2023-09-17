@@ -1,0 +1,21 @@
+/* Test: basic static array operations */
+
+program array_static
+let
+    type intArray = array[3] of int;
+    static a : intArray;
+begin
+
+    function main() : int
+    begin
+        a[0] := 15;
+        a[1] := 25;
+        a[2] := a[0] + a[1];
+
+        printi(a[0]);
+        printi(a[1]);
+        printi(a[2]);
+        return 0;
+    end
+
+end

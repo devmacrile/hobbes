@@ -1,0 +1,22 @@
+program err_for_exp_array
+let
+begin
+
+    function main() : int
+    begin
+        let
+            type myArray = array[10] of int;
+            var i : int;
+            var count : int := 0;
+            var a : myArray := 0;
+        begin
+            for i := 1 to a do
+                count := count + 1;
+            enddo;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: for loop range is array type*/

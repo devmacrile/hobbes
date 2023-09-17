@@ -1,0 +1,35 @@
+/* Test Program: Benchmark 3 - TAK */
+
+program benchmark3
+let
+begin
+
+    function tak(x : int, y : int, z : int) : int
+    begin
+        let
+            var a, b, c, d: int;
+        begin
+            if (y < x) then
+                a := tak(x-1, y, z);
+                b := tak(y-1, z, x);
+                c := tak(z-1, x, y);
+                d := tak(a, b, c);
+                return d;
+            else
+                return z;
+            endif;
+        end
+    end
+
+    function main() : int
+    begin
+        let
+            var a : int;
+        begin
+            a := tak(15,10,5);
+            printi(a);
+        end
+        return 0;
+    end
+
+end

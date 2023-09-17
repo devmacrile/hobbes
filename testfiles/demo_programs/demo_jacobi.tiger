@@ -1,0 +1,198 @@
+/* Test Program: Jacobi */
+
+program demo_jacobi
+let
+    type matrix = array[64] of float;
+    type vector = array[8] of float;
+
+    static A  : matrix;
+    static R  : matrix;
+    static x  : vector;
+    static b  : vector;
+    static Ax : vector;
+    static Rx : vector;
+    static n  : int;
+begin
+
+    function abs_val(a: float) : float
+    begin
+        let
+            var r : float;
+        begin
+            if (a < 0.0) then
+                r := 0.0 - a;
+            else
+                r := a;
+            endif;
+            return r;
+        end
+    end
+
+    /* a, n should be > 0 */
+    function naive_mod (a : float, n : float) : float
+    begin
+        let
+            var r : float;
+        begin
+            r := a;
+            while (r > n) do
+                r := r - n;
+            enddo;
+            return r;
+        end
+    end
+
+    function init_data()
+    begin
+        n := 8;
+        let
+            var i : int;
+        begin
+            for i := 0 to (n ** 2 - 1) do
+                let
+                    var t1 : float;
+                    var t2 : float;
+                begin
+                    t1 := naive_mod(3.0 * i + 1, 19.0);
+                    t2 := naive_mod(i + 5.0, 23.0);
+                    A[i] :=  t1 * t2 / 15.0 - 12.0;
+                end
+            enddo;
+        end
+
+        let
+            var i, j : int;
+        begin
+            /* Ensure A is diagonally dominant */
+            let
+                var max_row_sum : float := 0;
+            begin
+                for i := 0 to (n - 1) do
+                    let
+                        var tmp_row_sum : float := 0;
+                        var tmp : float;
+                    begin
+                        for j := 0 to (n - 1) do
+                            tmp := abs_val(A[i + n * j]);
+                            tmp_row_sum := tmp_row_sum + tmp;
+                        enddo;
+
+                        if (tmp_row_sum > max_row_sum) then
+                            max_row_sum := tmp_row_sum;
+                        endif;
+                    end
+                enddo;
+
+                for i := 0 to (n - 1) do
+                    let
+                        var index : int;
+                    begin
+                        index := i * n + i;
+                        A[index] := A[index] + max_row_sum;
+                    end
+                enddo;
+            end
+        end
+    end
+
+    function matrix_vector_mult_Ax()
+    begin
+        let
+            var row, col : int;
+        begin
+            for row := 0 to (n - 1) do
+                Ax[row] := 0.0;
+                for col := 0 to (n - 1) do
+                    Ax[row] := Ax[row] + x[col] * A[n * row + col];
+                enddo;
+            enddo;
+        end
+    end
+
+    function matrix_vector_mult_Rx()
+    begin
+        let
+            var row, col : int;
+        begin
+            for row := 0 to (n - 1) do
+                Rx[row] := 0.0;
+                for col := 0 to (n - 1) do
+                    Rx[row] := Rx[row] + x[col] * R[n * row + col];
+                enddo;
+            enddo;
+        end
+    end
+
+    function jacobi(max_iter: int, l2_termination: float)
+    begin
+        let
+            var i : int;
+        begin
+            for i := 0 to (n - 1) do
+                x[i] := 0.0;
+                b[i] := 1.0;
+            enddo;
+        end
+
+        let
+            var d : vector;
+            var row, col, count, i : int;
+        begin
+            for row := 0 to (n - 1) do
+                for col := 0 to (n - 1) do
+                    let
+                        var index : int ;
+                    begin
+                        index := row * n + col ;
+                        if (row == col) then
+                            d[row] := A[index] ;
+                            R[index] := 0;
+                        else
+                            R[index] := A[index] ;
+                        endif;
+                    end
+                enddo;
+            enddo;
+
+            for count := 0 to max_iter do
+                let
+                    var l2_norm_squared : float := 0;
+                begin
+                    matrix_vector_mult_Ax();
+
+                    for i := 0 to (n - 1) do
+                        Ax[i] := Ax[i] - b[i];
+                    enddo;
+
+                    for i := 0 to (n - 1) do
+                        l2_norm_squared := l2_norm_squared + Ax[i] ** 2;
+                    enddo;
+
+                    if (l2_norm_squared <= l2_termination ** 2) then
+                        break;
+                    endif;
+
+                    matrix_vector_mult_Rx();
+                    for i := 0 to (n - 1) do
+                        x[i] := (1.0 / d[i]) * (b[i] - Rx[i]);
+                    enddo;
+                end
+            enddo;
+        end
+    end
+
+    function main() : int
+    begin
+        init_data();
+        jacobi(99, 0.000000001);
+        let
+            var i : int;
+        begin
+            for i := 0 to (n - 1) do
+                printf(x[i]);
+            enddo;
+        end
+        return 0;
+    end
+
+end

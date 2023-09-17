@@ -1,0 +1,23 @@
+/* Test: static array index operations */
+
+program array_static_index
+let
+    type intArray = array[5] of int;
+    static a : intArray;
+    static i : int;
+begin
+
+    function main() : int
+    begin
+        for i := 0 to 4 do
+            a[i] := i + i;
+        enddo;
+
+        for i := 0 to 4 do
+            printi(a[i]);
+        enddo;
+
+        return 0;
+    end
+
+end

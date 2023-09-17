@@ -1,0 +1,117 @@
+/* Test: if else stmt */
+
+program conditional_if_else
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int := 1;
+        begin
+            if a > 0 then
+                printi(1);
+            else
+                printi(2);
+            endif;
+
+            if a > 1 then
+                printi(3);
+            else
+                printi(4);
+            endif;
+
+            if a > 2 then
+                printi(5);
+            else
+                printi(6);
+            endif;
+
+
+            if a < 0 then
+                printi(7);
+            else
+                printi(8);
+            endif;
+
+            if a < 1 then
+                printi(9);
+            else
+                printi(10);
+            endif;
+
+            if a < 2 then
+                printi(11);
+            else
+                printi(12);
+            endif;
+
+
+            if a >= 0 then
+                printi(13);
+            else
+                printi(14);
+            endif;
+
+            if a >= 1 then
+                printi(15);
+            else
+                printi(16);
+            endif;
+
+            if a >= 2 then
+                printi(17);
+            else
+                printi(18);
+            endif;
+
+
+            if a <= 0 then
+                printi(19);
+            else
+                printi(20);
+            endif;
+
+            if a <= 1 then
+                printi(21);
+            else
+                printi(22);
+            endif;
+
+            if a <= 2 then
+                printi(23);
+            else
+                printi(24);
+            endif;
+
+
+            if a == 0 then
+                printi(25);
+            else
+                printi(26);
+            endif;
+
+            if a == 1 then
+                printi(27);
+            else
+                printi(28);
+            endif;
+
+
+            if a != 0 then
+                printi(29);
+            else
+                printi(30);
+            endif;
+
+            if a != 1 then
+                printi(31);
+            else
+                printi(32);
+            endif;
+
+        end
+        return 0;
+    end
+
+end

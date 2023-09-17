@@ -1,0 +1,17 @@
+program err_power_op_float
+let
+begin
+
+    function main(): int
+    begin
+        let
+            var a : int := 5;
+        begin
+            a := a ** (a + 1.0);
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: exponent right hand side is float expression*/

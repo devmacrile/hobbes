@@ -1,0 +1,18 @@
+program err_assign_narrowing
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : float := 1.0;
+            var b : int := 2;
+        begin
+            b := b + a;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: narrowing conversion on assignment*/

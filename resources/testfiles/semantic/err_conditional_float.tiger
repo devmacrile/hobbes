@@ -1,0 +1,20 @@
+program err_conditional_float
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : float := 1.0;
+            var b : int := 1;
+        begin
+            if (a + b) then
+                b := 2;
+            endif;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: if() condition is float type*/

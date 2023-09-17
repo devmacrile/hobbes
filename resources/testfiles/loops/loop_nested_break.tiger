@@ -1,0 +1,28 @@
+/* Test: nested break stmt */
+
+program loop_nested_break
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var i, j : int;
+        begin
+            for i := 1 to 5 do
+
+                j := 5;
+                while(j > 0) do
+                    if (i == j) then
+                        break;
+                    endif;
+                    printi(i * j);
+                    j := j - 1;
+                enddo;
+
+            enddo;
+        end
+        return 0;
+    end
+
+end

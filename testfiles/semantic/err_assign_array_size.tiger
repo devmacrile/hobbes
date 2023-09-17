@@ -1,0 +1,20 @@
+program err_assign_array_size
+let
+begin
+
+    function main() : int
+    begin
+        let
+            type arrayA = array[10] of int;
+            type arrayB = array[5] of int;
+            var a : arrayA := 1;
+            var b : arrayB := 2;
+        begin
+            b := a;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: array assignment to array of different size*/

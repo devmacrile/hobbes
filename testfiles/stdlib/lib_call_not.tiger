@@ -1,0 +1,22 @@
+/* Test: not library call */
+
+program lib_call_not
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int;
+        begin
+            a := 1;
+            a := not(a);
+            printi(a);
+
+            a := not(a);
+            printi(a);
+        end
+        return 0;
+    end
+
+end

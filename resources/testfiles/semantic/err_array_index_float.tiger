@@ -1,0 +1,19 @@
+program err_array_index_float
+let
+begin
+
+    function main() : int
+    begin
+        let
+            type intArray = array[10] of int;
+            var a : intArray := 0;
+            var b : int := 1;
+        begin
+            a[b * 2.0] := 1;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: array index is float type*/

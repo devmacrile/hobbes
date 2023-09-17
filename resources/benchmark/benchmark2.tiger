@@ -1,0 +1,49 @@
+/* Test: benchmark program 2 */
+
+program benchmark2
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a, i : int := 0;
+            var b : int := 1;
+        begin
+            a := a + b;
+            a := a + b;
+            a := a + b;
+            a := a + b;
+
+            while (i < 10) do
+                a := a + b;
+                a := a + b;
+                a := a + b;
+                a := a + b;
+
+                if (i < 5) then
+                    a := a + b;
+                    a := a + b;
+                    a := a + b;
+                    a := a + b;
+                else
+                    a := a - b;
+                    a := a - b;
+                    a := a - b;
+                    a := a - b;
+                endif;
+
+                a := a + b;
+                a := a + b;
+                a := a + b;
+                a := a + b;
+
+                i := i + 1;
+            enddo;
+
+            printi(a);
+        end
+        return 0;
+    end
+
+end

@@ -1,0 +1,22 @@
+program err_func_call_too_few_args
+let
+begin
+
+    function addIt(x : int, y : int) : int
+    begin
+        return x + y;
+    end
+
+    function main(): int
+    begin
+        let
+            var a: int := 1;
+        begin
+            a := addIt(a);
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: function call with too few arguments*/

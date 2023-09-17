@@ -1,0 +1,41 @@
+/* Test: user function that calls user function */
+
+program function_call_chain
+let
+begin
+
+    function add0(y : int) : int
+    begin
+        return y;
+    end
+
+    function add1(y : int) : int
+    begin
+        y := add0(y);
+        return y + 1;
+    end
+
+    function add2(y : int) : int
+    begin
+        y := add1(y);
+        return y + 1;
+    end
+
+    function add3(y : int) : int
+    begin
+        y := add2(y);
+        return y + 1;
+    end
+
+    function main() : int
+    begin
+        let
+            var y : int;
+        begin
+            y := add3(10);
+            printi(y);
+        end
+        return 0;
+    end
+
+end

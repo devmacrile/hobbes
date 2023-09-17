@@ -1,0 +1,16 @@
+/* Test: printi library call */
+
+program lib_call_printi
+let
+begin
+
+    function main() : int
+    begin
+        printi(3);
+        printi(2);
+        printi(1);
+
+        return 0;
+    end
+
+end

@@ -1,0 +1,15 @@
+/* Test: exit library call */
+
+program lib_call_exit
+let
+begin
+
+    function main() : int
+    begin
+        printi(5);
+        exit(1);
+        printi(6);
+        return 0;
+    end
+
+end

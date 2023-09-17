@@ -1,0 +1,23 @@
+/* Test: user function call with 4 arguments */
+
+program function_call_4_arg
+let
+begin
+
+    function sum (a : int, b : int, c : int, d : int) : int
+    begin
+        return a + b + c + d;
+    end
+
+    function main() : int
+    begin
+        let
+            var result : int;
+        begin
+            result := sum(1,2,3,4);
+            printi(result);
+        end
+        return 0;
+    end
+
+end

@@ -1,0 +1,22 @@
+/* Test: var float initialization */
+
+program float_init
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : float := 4.0;
+            var b , c  : float := 6.0;
+        begin
+            b := 5.0;
+
+            printf(a);
+            printf(b);
+            printf(c);
+        end
+        return 0;
+    end
+
+end

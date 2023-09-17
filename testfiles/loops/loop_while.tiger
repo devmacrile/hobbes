@@ -1,0 +1,21 @@
+/* Test: while loop */
+
+program loop_while
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var i : int;
+        begin
+            i := 0;
+            while (i < 5) do
+                printi(i);
+                i := i + 1;
+            enddo;
+        end
+        return 0;
+    end
+
+end

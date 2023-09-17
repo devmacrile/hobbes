@@ -1,0 +1,67 @@
+/* Test Program: PRNG */
+
+program demo_prng
+let
+    static size : int;
+begin
+
+    function modulo (a : int, b : int) : int
+    begin
+        let
+            var r : int;
+        begin
+            r := a - (b * (a / b));
+            return r;
+        end
+    end
+
+    function adjust(a : int) : int
+    begin
+        let
+            var c : int := 1;
+            var b, i, isOdd : int;
+        begin
+            b := a;
+            for i := 1 to a do
+                b := b + c;
+                b := b + c;
+                b := b + c;
+                isOdd := modulo(b, 2);
+                if (isOdd) then
+                    b := b - c;
+                    b := b - c;
+                else
+                    b := b + c;
+                    b := b + c;
+                    b := b + c;
+                endif;
+            enddo;
+            return b;
+        end
+    end
+
+    function gen_random(seed : int, mod : int, mult : int, inc : int)
+    begin
+        let
+            var i, prev, cur, a : int;
+        begin
+            prev := seed;
+
+            for i := 1 to size do
+                a := adjust(prev);
+                printi(a);
+
+                cur := modulo((prev * mult) + inc, mod);
+                prev := cur;
+            enddo;
+        end
+    end
+
+    function main() : int
+    begin
+        size := 10;
+        gen_random(17, 397, 17, 1);
+        return 0;
+    end
+
+end

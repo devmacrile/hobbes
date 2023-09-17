@@ -1,0 +1,54 @@
+/* Test: combinations of integer arithmetic operators */
+
+program basic_math_combo
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int := 5;
+            var b : int := 50;
+            var c : int;
+        begin
+            c := 100 + a + b;
+            printi(c);
+
+            c := 100 - a - b;
+            printi(c);
+
+            c := 100 * a * b;
+            printi(c);
+
+            c := 500 / a / b;
+            printi(c);
+
+            c := 100 - 50 + 25;
+            printi(c);
+
+            c := 100 / 50 * 25;
+            printi(c);
+
+            c := a * b + a + b - a - b / a;
+            printi(c);
+
+            c := 200 / 4 - 25 / 5;
+            printi(c);
+
+            c := 100 - b * a + 7;
+            printi(c);
+
+            c := (100 - b) * (a + 7);
+            printi(c);
+
+            c := (10 - b) * ((a - 3) / 2);
+            printi(c);
+
+            c := (20 + (60 / (3 * (7 - 1))));
+            printi(c);
+
+        end
+        return 0;
+    end
+
+end

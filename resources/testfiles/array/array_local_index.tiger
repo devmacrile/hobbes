@@ -1,0 +1,25 @@
+/* Test: local array index operations */
+
+program array_local_index
+let
+begin
+
+    function main() : int
+    begin
+        let
+            type intArray = array[5] of int;
+            var a : intArray;
+            var i : int;
+        begin
+            for i := 0 to 4 do
+                a[i] := i * i;
+            enddo;
+
+            for i := 0 to 4 do
+                printi(a[i]);
+            enddo;
+        end
+        return 0;
+    end
+
+end

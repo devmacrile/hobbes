@@ -1,0 +1,17 @@
+program err_array_without_type
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : array[10] of int;
+        begin
+            a[0] := 1;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: array defined without type*/

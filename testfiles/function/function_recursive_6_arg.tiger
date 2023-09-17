@@ -1,0 +1,37 @@
+/* Test: recursive with 6 arguments */
+
+program function_recursive_6_arg
+let
+begin
+
+    function compute(a : int, b : int, c : int, d : int, e : int, f : int) : int
+    begin
+        let
+            var sum : int;
+            var tmp : int;
+        begin
+            sum := a + b + c + d + e + f;
+
+            /*Base Case*/
+            if (sum <= 0) then
+                return 1;
+            endif;
+
+            /*Recursive Case*/
+            tmp := compute(a-1, b-2, c-3, d-4, e-5, f-6);
+            return 1 + tmp;
+        end
+    end
+
+    function main() : int
+    begin
+        let
+            var result : int;
+        begin
+            result := compute(11,12,13,14,15,16);
+            printi(result);
+        end
+        return 0;
+    end
+
+end

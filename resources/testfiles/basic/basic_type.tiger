@@ -1,0 +1,21 @@
+/* Test: basic user-defined type */
+
+program basic_type
+let
+begin
+
+    function main() : int
+    begin
+        let
+            type myInt = int;
+            var a : myInt := 5;
+            var b : int := 12;
+        begin
+            b := a + b;
+            a := b + 3;
+            printi(a);
+        end
+        return 0;
+    end
+
+end

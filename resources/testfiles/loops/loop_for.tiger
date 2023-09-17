@@ -1,0 +1,24 @@
+/* Test: for loop */
+
+program loop_for
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var i : int;
+        begin
+            for i := 1 to 4 do
+				let
+					var j : int := 1;
+                begin
+					printi(i * i * j);
+					j := j + 1;
+				end
+            enddo;
+        end
+        return 0;
+    end
+
+end

@@ -1,0 +1,81 @@
+/* Test Program: matrix */
+
+program demo_matrix
+let
+    type matrix = array[128] of float;
+    type vector8 = array[8] of float;
+    type vector16 = array[16] of float;
+
+    static A : matrix;
+    static b : vector16;
+    static x : vector8;
+    static n : int;
+    static m : int;
+begin
+
+    /* a, n should be > 0 */
+    function naive_mod (a : float, n : float) : float
+    begin
+        let
+            var r : float;
+        begin
+            r := a;
+            while (r > n) do
+                r := r - n;
+            enddo;
+            return r;
+        end
+    end
+
+    function init_data()
+    begin
+        m := 8;
+        n := 16;
+        let
+            var i : int;
+        begin
+            for i := 0 to m * n - 1 do
+                let
+                    var t1 : float;
+                    var t2 : float;
+                begin
+                    t1 := naive_mod(3.0 * i + 1, 19.0);
+                    t2 := naive_mod(i + 5.0, 23.0);
+                    A[i] :=  t1 * t2 / 10.0 - 8.0;
+                end
+            enddo;
+            for i := 0 to m - 1 do
+                x[i] := (i - 3.5) ** 2 - 6;
+            enddo;
+        end
+    end
+
+    function matrix_vector_mult()
+    begin
+        let
+            var row, col : int;
+        begin
+            for row := 0 to n - 1 do
+                b[row] := 0.0;
+                for col := 0 to m - 1 do
+                    b[row] := b[row] + x[col] * A[m * row + col];
+                enddo;
+            enddo;
+        end
+    end
+
+    function main() : int
+    begin
+        init_data();
+        matrix_vector_mult();
+        let
+            var i : int;
+        begin
+            for i := 0 to n - 1 do
+                printf(b[i]);
+            enddo;
+        end
+        return 0;
+    end
+
+end

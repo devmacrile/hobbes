@@ -1,0 +1,23 @@
+/* Test: user function call with 1 argument */
+
+program function_call_1_arg
+let
+begin
+
+    function square (x : int) : int
+    begin
+        return x * x;
+    end
+
+    function main() : int
+    begin
+        let
+            var result : int;
+        begin
+            result := square(5);
+            printi(result);
+        end
+        return 0;
+    end
+
+end

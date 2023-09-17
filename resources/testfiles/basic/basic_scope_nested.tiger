@@ -1,0 +1,39 @@
+/* Test: nested scopes */
+
+program basic_scope_nested
+let
+    static a : int;
+begin
+
+    function main() : int
+    begin
+        a := 10;
+        let
+            var b : int;
+        begin
+            a := a + 1;
+            b := 20;
+            let
+                var c : int;
+            begin
+                a := a + 1;
+                b := b + 1;
+                c := 30;
+                let
+                    var d : int;
+                begin
+                    a := a + 1;
+                    b := b + 1;
+                    c := c + 1;
+                    d := 40;
+                    printi(d);
+                end
+                printi(c);
+            end
+            printi(b);
+        end
+        printi(a);
+        return 0;
+    end
+
+end

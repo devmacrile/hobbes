@@ -1,0 +1,21 @@
+/* Test: nested for loop */
+
+program loop_nested_for
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var i, j : int;
+        begin
+            for i := 1 to 4 do
+                for j := 1 to 2 do
+                    printi(i * j);
+                enddo;
+            enddo;
+        end
+        return 0;
+    end
+
+end

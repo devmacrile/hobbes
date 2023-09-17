@@ -1,0 +1,18 @@
+/* Test: user defined procedure call */
+
+program function_call_void_ret
+let
+begin
+
+    function printSquare (x : int)
+    begin
+        printi(x * x);
+    end
+
+    function main() : int
+    begin
+        printSquare(10);
+        return 0;
+    end
+
+end

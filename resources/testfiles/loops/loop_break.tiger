@@ -1,0 +1,34 @@
+/* Test: break stmt */
+
+program loop_break
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var i, a : int;
+        begin
+            a := 4;
+
+            for i := 1 to 10 do
+                printi(i);
+                if (i == a) then
+                    break;
+                endif;
+            enddo;
+
+            i := 10;
+            while(i > 0) do
+                printi(i);
+                if (i == a) then
+                    break;
+                endif;
+                i := i - 1;
+            enddo;
+
+        end
+        return 0;
+    end
+
+end

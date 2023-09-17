@@ -1,0 +1,16 @@
+/* Test: printf library call */
+
+program lib_call_printf
+let
+begin
+
+    function main() : int
+    begin
+        printf(3.0);
+        printf(2.0);
+        printf(1.0);
+
+        return 0;
+    end
+
+end

@@ -1,0 +1,22 @@
+/* Test: type of type */
+
+program basic_type_of_type
+let
+begin
+
+    function main() : int
+    begin
+        let
+            type myInt = int;
+            type myOtherInt = myInt;
+            var a : myInt := 7;
+            var b : myOtherInt := 10;
+            var c : int;
+        begin
+            c := a + b;
+            printi(c);
+        end
+        return 0;
+    end
+
+end

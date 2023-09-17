@@ -1,0 +1,53 @@
+/* Test: combinations of float arithmetic operators */
+
+program float_math_combo
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : float := 5.0;
+            var b : float := 50.0;
+            var c : float;
+        begin
+            c := 100.0 + a + b;
+            printf(c);
+
+            c := 100.0 - a - b;
+            printf(c);
+
+            c := 100.0 * a * b;
+            printf(c);
+
+            c := 500.0 / a / b;
+            printf(c);
+
+            c := 100.0 - 50.0 + 25.0;
+            printf(c);
+
+            c := 100.0 / 50.0 * 25.0;
+            printf(c);
+
+            c := a * b + a + b - a - b / a;
+            printf(c);
+
+            c := 200.0 / 4.0 - 25.0 / 5.0;
+            printf(c);
+
+            c := 100.0 - b * a + 7.0;
+            printf(c);
+
+            c := (100.0 - b) * (a + 7.0);
+            printf(c);
+
+            c := (10.0 - b) * ((a - 3.0) / 2.0);
+            printf(c);
+
+            c := (20.0 + (60.0 / (3.0 * (7.0 - 1.0))));
+            printf(c);
+        end
+        return 0;
+    end
+
+end

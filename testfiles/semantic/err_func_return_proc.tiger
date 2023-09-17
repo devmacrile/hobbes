@@ -1,0 +1,19 @@
+program err_func_return_proc
+let
+begin
+
+    function doubleIt(x : int)
+    begin
+        x := x * 2;
+        return x;
+    end
+
+    function main() : int
+    begin
+        doubleIt(10);
+        return 0;
+    end
+
+end
+
+/*Semantic Error: function return int expected void*/

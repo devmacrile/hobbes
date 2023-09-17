@@ -1,0 +1,18 @@
+program err_array_add
+let
+begin
+
+    function main() : int
+    begin
+        let
+            type intArray = array[10] of int;
+            var a : intArray := 5;
+        begin
+            a := a + a;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: array binop addition*/

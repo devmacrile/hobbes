@@ -1,0 +1,20 @@
+program err_break_outside_loop
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a,i : int := 0;
+        begin
+            for i := 1 to 10 do
+                a := a + 1;
+            enddo;
+            break;
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: break outside of loop*/

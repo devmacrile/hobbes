@@ -1,0 +1,39 @@
+/* Test Program: calculate slope  */
+
+program demo_slope
+let
+    type point = array[2] of float;
+    static p1, p2 : point;
+    static rise : float;
+    static run : float;
+    static slope : float;
+    static yintercept : float;
+    static xintercept : float;
+begin
+
+    function main() : int
+    begin
+        p1[0] := 2.0;
+        p1[1] := 1.0;
+        p2[0] := 3.0;
+        p2[1] := 3.0;
+
+        rise := p2[1] - p1[1];
+        run  := p2[0] - p1[0];
+
+        if ((run == 0.0) | (rise == 0.0)) then
+            printi(0);
+            exit(1);
+        endif;
+
+        slope := rise / run;
+        yintercept := p2[1] - slope * p2[0];
+        xintercept := (0 - yintercept) / slope;
+
+        printf(slope);
+        printf(xintercept);
+        printf(yintercept);
+        return 0;
+    end
+
+end

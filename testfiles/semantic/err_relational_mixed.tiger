@@ -1,0 +1,19 @@
+program err_relational_mixed
+let
+begin
+
+    function main() : int
+    begin
+        let
+            var a : int := 10;
+            var b : float := 1.0;
+            var c : int := 0;
+        begin
+            c := (a >= b);
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: relational operator type mismatch - int and float*/

@@ -1,0 +1,23 @@
+program err_func_call_narrowing
+let
+begin
+
+    function addIt(x : int, y : int) : int
+    begin
+        return x + y;
+    end
+
+    function main(): int
+    begin
+        let
+            var a : int := 1;
+            var b : float := 1.0;
+        begin
+            a := addIt(a, b);
+        end
+        return 0;
+    end
+
+end
+
+/*Semantic Error: function call with narrowing conversion*/
