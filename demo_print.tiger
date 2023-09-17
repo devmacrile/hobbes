@@ -1,0 +1,23 @@
+/* Test Program : print out integers */
+
+program demo_print
+let
+begin
+    function printout ( x : int , y : int , z : int )
+    begin
+        printi ( x );
+        printi ( y );
+        printi ( z );
+    end
+
+    function main () : int
+    begin
+        let
+            var a : int := 10;
+            var b : int := 20;
+        begin
+            printout ( a * 2 , b - a , a + b );
+        end
+        return 0;
+    end
+end
